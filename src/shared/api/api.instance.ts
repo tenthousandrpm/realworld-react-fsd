@@ -1,4 +1,6 @@
 import axios, { AxiosError } from 'axios';
+import { store } from '~shared/store';
+import { resetSession } from '~entities/session/session.model';
 import { ApiErrorDataDtoSchema } from './api.contracts';
 import { normalizeValidationErrors } from './api.lib';
 
@@ -22,6 +24,10 @@ api.interceptors.response.use(
   (error) => {
     if (!axios.isAxiosError(error)) {
       return Promise.reject(error);
+    }
+
+    if (error.response?.status === 401 && store.getState().session?.token) {
+      store.dispatch(resetSession());
     }
 
     const validation = ApiErrorDataDtoSchema.safeParse(error.response?.data);

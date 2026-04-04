@@ -5,7 +5,7 @@ export const ArticleDtoSchema = z.object({
     slug: z.string(),
     title: z.string(),
     description: z.string(),
-    body: z.string(),
+    body: z.string().optional(),
     tagList: z.string().array(),
     createdAt: z.string().datetime(),
     updatedAt: z.string().datetime(),
