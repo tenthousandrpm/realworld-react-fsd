@@ -4,7 +4,7 @@ export const ArticleSchema = z.object({
   slug: z.string(),
   title: z.string(),
   description: z.string(),
-  body: z.string(),
+  body: z.string().optional(),
   tagList: z.string().array(),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
@@ -12,7 +12,7 @@ export const ArticleSchema = z.object({
   favoritesCount: z.number(),
   author: z.object({
     username: z.string(),
-    bio: z.string(),
+    bio: z.string().nullable(),
     image: z.string(),
     following: z.boolean(),
   }),
