@@ -5,13 +5,12 @@
     "target": "ESNext",
     "jsx": "react-jsx",
     "allowJs": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "strictNullChecks": true,
     "outDir": "./dist/",
-    "baseUrl": ".",
     "paths": {
       "~app/*": ["./src/app/*"],
       "~pages/*": ["./src/pages/*"],
@@ -26,5 +25,5 @@
       "module": "CommonJS"
     }
   },
-  "exclude": ["node_modules", "dist", "build", "coverage"]
+  "exclude": ["node_modules", "dist", "build", "coverage", "cypress", "cypress.config.ts"]
 }
